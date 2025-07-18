@@ -115,8 +115,7 @@
     zls # zig language server
     jetbrains.rider
     dotnetCorePackages.sdk_8_0_3xx
-    gptfdisk
-];
+  ];
 
 programs.steam = {
   enable = true;

@@ -87,14 +87,16 @@
     grim # screenshot functionality
     slurp # screenshot functionality
     wl-clipboard #wl-copy and wl-paste for copypaste from stdin / stdout
-    mako #developped by the sway maintainers
+    mako # developped by the sway maintainers
     vim # god i need vim
     tofi # minimal dmenu / rofi replacement
-    swaylock # duh do I need to comment what it does?
+    fuzzel # recommended for niri instead of tofi
+    waybar # recommended for niri over swaybar ofc
+    swww # trying out swww for niri
     wget 
     yazi
     fastfetch
-    discord
+    vesktop
     spotify
     _1password-gui
     rclone
@@ -122,14 +124,25 @@
     zathura # document viewer
   ];
 
-programs.steam = {
-  enable = true;
-};
+  qt = {
+    enable = true;
+    platformTheme = "gnome";
+    style = "adwaita-dark";
+  };
+
+  programs.steam = {
+    enable = true;
+  };
   
   #environment.sessionVariables = rec {
    # PATH="$PATH:/home/kitty/Code/scripts/";
   #};
+  
+  services.gnome.gnome-keyring.enable = true; # secret service
+  security.pam.services.swaylock = {};
 
+
+  programs.niri.enable = true;
   # enable sway window manager
   programs.sway = {
     enable = true;

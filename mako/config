@@ -1,3 +1,7 @@
+# Behaviour
+
+default-timeout=8000
+
 # Colors
 
 background-color=#1e1e2e

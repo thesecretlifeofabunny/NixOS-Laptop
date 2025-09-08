@@ -47,12 +47,6 @@
    # useXkbConfig = true; # use xkb.options in tty.
   #};
 
-  # Enable the X11 windowing system.
-  # services.xserver.enable = true;
-
-  # Enable xWayland
-  programs.xwayland.enable = true;
-
   # Enable fingerprint reader support
   services.fprintd.enable = true;
 
@@ -73,20 +67,25 @@
   # Configure keymap in X11
   # services.xserver.xkb.layout = "us";
   # services.xserver.xkb.options = "eurosign:e,caps:escape";
+  
+  services.displayManager.cosmic-greeter.enable = true;
+
+  fonts.packages = with pkgs; [
+    nerd-fonts.fira-code
+    nerd-fonts.droid-sans-mono
+    font-awesome
+  ];
+  
   nixpkgs.config.allowUnfree = true; 
   
   environment.systemPackages = with pkgs; [
-    sway
+    xwayland-satellite
     wayland
-    xwayland
     networkmanager
     alacritty
     git
     jujutsu #jj-vcs
     networkmanagerapplet
-    grim # screenshot functionality
-    slurp # screenshot functionality
-    wl-clipboard #wl-copy and wl-paste for copypaste from stdin / stdout
     mako # developped by the sway maintainers
     vim # god i need vim
     tofi # minimal dmenu / rofi replacement

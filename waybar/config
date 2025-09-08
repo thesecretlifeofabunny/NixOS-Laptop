@@ -1,0 +1,53 @@
+{
+    "layer": "top", // Waybar at top layer
+    "position": "top", // Waybar position (top|bottom|left|right)
+    "height": 46, // minimum height requested by modules being used
+
+    "modules-left": ["niri/workspaces"],
+    "modules-center": ["clock"],
+    "modules-right": ["wireplumber","backlight","battery", "tray"],
+
+    "niri/workspaces": {
+         "disable-scroll": true,
+         "sort-by-name": true,
+         "format": " {icon} ",
+         "format-icons": {
+             "default": "",
+         },
+     },
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{icon}",
+        "on-scroll-up": "brightnessctl set +5%",
+        "on-scroll-down": "brightnessctl set 5%-",
+        "format-icons": ["", "", "", "", "", "", "", "", ""]
+    },
+    "battery": {
+        "states": {
+          "warning": 30,
+          "critical": 15
+        },
+        "format-charging": "󰚥 {capacity: >3}%",
+        "format-plugged": "󰚥 {capacity: >3}%",
+        "format": "{icon} {capacity: >3}%",
+        "format-icons": ["", "", "", "", ""]
+     },    
+    "tray": {
+        "icon-size": 21,
+        "spacing": 10
+    },
+    "clock": {
+        "timezone": "America/Vancouver",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "󱛡  {:%d/%m/%Y}",
+        "format": "  {:%H:%M}"
+    },
+    "wireplumber": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{icon} {volume}%",
+        "format-muted": "",
+        "format-icons": {
+            "default": ["", "", " "]
+        },
+    }
+}

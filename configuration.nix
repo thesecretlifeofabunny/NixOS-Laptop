@@ -31,6 +31,23 @@
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
 
   services.tailscale.enable = true;
+  services.mullvad-vpn.enable = true;
+
+  networking.nameservers = [
+    "1.1.1.1"
+    "1.0.0.1"
+  ];
+
+  services.resolved = {
+    enable = true;
+    dnssec = "true";
+    domains = [ "~." ];
+    fallbackDns = [
+      "1.1.1.1"
+      "1.0.0.1"
+    ];
+    dnsovertls = "true";
+  };
   
   # Set your time zone.
   time.timeZone = "America/Vancouver";
@@ -82,6 +99,7 @@
     xwayland-satellite
     wayland
     networkmanager
+    mullvad-vpn
     alacritty
     git
     jujutsu #jj-vcs
@@ -92,10 +110,12 @@
     fuzzel # recommended for niri instead of tofi
     waybar # recommended for niri over swaybar ofc
     swww # trying out swww for niri
+    nautilus # niri preffered file manager
     wget 
     yazi
     fastfetch
     vesktop
+    fractal
     spotify
     _1password-gui
     rclone

@@ -54,8 +54,8 @@
 
 #tray{
   color: @blue;
-  border-radius: 0px 1rem 1rem 0px;
   margin-right: 1rem;
+  border-radius: 1rem;
 }
 
 #clock {
@@ -64,14 +64,21 @@
 
 #battery {
   color: @green;
+  margin-right: 1rem;
+  border-radius: 0px 1rem 1rem 0px;
+
 }
 
 #battery.charging {
   color: @teal;
+  margin-right: 1rem;
+  border-radius: 0px 1rem 1rem 0px;
 }
 
 #battery.warning:not(.charging) {
   color: @red;
+  margin-right: 1rem;
+  border-radius: 0px 1rem 1rem 0px;
 }
 
 #backlight {

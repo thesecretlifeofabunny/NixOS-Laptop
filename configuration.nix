@@ -33,6 +33,8 @@
   services.tailscale.enable = true;
   services.mullvad-vpn.enable = true;
 
+  programs.gnupg.agent.enable = true;
+
   networking.nameservers = [
     "1.1.1.1"
     "1.0.0.1"
@@ -84,8 +86,9 @@
   # Configure keymap in X11
   # services.xserver.xkb.layout = "us";
   # services.xserver.xkb.options = "eurosign:e,caps:escape";
-  
-  services.displayManager.cosmic-greeter.enable = true;
+  # services.greetd.enable = true;
+  # services.greetd.settings.default_session.command = lib.mkForce ''${lib.getExe' pkgs.coreutils "env"} XCURSOR_THEME="''${XCURSOR_THEME:-Pop}" systemd-cat -t cosmic-greeter ${lib.getExe pkgs.cosmic-comp} ${lib.getExe config.services.displayManager.cosmic-greeter.package}'';  
+  services.displayManager.ly.enable = true;
 
   fonts.packages = with pkgs; [
     nerd-fonts.fira-code
@@ -106,31 +109,38 @@
     networkmanagerapplet
     mako # developped by the sway maintainers
     vim # god i need vim
-    tofi # minimal dmenu / rofi replacement
     fuzzel # recommended for niri instead of tofi
     waybar # recommended for niri over swaybar ofc
+    brightnessctl # For brightness module in waybar
     swww # trying out swww for niri
     nautilus # niri preffered file manager
+    swaylock
     wget 
     yazi
     fastfetch
     vesktop
     fractal
+    gajim
+    protonmail-desktop
     spotify
     _1password-gui
     rclone
     rsync
     mpv
+    plex-desktop
     nil # yet another nix lsp
     rust-analyzer # rust lsp
     lldb # llvm debugger
     go 
     gopls # go lsp
+    golangci-lint-langserver
     delve # go debugger
     omnisharp-roslyn #dotnet lsp
     netcoredbg # dotnet debugger
     llvmPackages_20.clang-tools # llvm / c related tools
     jdt-language-server # java lsp
+    jdk
+    jetbrains.idea-ultimate
     helix
     btop
     tmux 
@@ -159,26 +169,9 @@
   
   services.gnome.gnome-keyring.enable = true; # secret service
   security.pam.services.swaylock = {};
-
-
-  programs.niri.enable = true;
-  # enable sway window manager
-  programs.sway = {
-    enable = true;
-    wrapperFeatures.gtk = true;
-  };
-
-  # To setup sway using home manager must enable Polkit
   security.polkit.enable = true;
 
-#  wayland.windowManager.sway = {
- #   enable = true;
-  #  config = rec {
-  #    modifier = "Mod4";
-   #   # Use kitty as default terminal
-    #  terminal = "kitty";
-    #};
-  #};
+  programs.niri.enable = true;
 
   programs.light.enable = true;
 

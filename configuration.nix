@@ -147,7 +147,7 @@
     typescript-language-server
     zls # zig language server
     jetbrains.rider
-    dotnetCorePackages.sdk_8_0_3xx
+    dotnet-sdk_10
     typst
     tinymist # typst lsp
     zathura # document viewer

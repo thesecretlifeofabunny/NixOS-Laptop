@@ -128,6 +128,7 @@
     brightnessctl # For brightness module in waybar
     swww # trying out swww for niri
     nautilus # niri preffered file manager
+    termscp # tui for downloading
     swaylock
     wget 
     yazi
@@ -157,7 +158,8 @@
     jetbrains.idea-ultimate
     helix
     btop
-    tmux 
+    tmux
+    haskell-language-server 
     typescript-language-server
     zls # zig language server
     jetbrains.rider
